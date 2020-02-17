@@ -1,0 +1,15 @@
+451747	Zyabrikovo	Zyabrikovo		56.84665	34.7048	P	PPL	RU		77				0		204	Europe/Moscow	2011-07-09
+462335	Znamenka	Znamenka	Znamenka,Знаменка	55.3298	42.7586	P	PPL	RU		51				0		132	Europe/Moscow	2012-01-17
+462336	Znamenka	Znamenka	Zaderikhi,Zadirikhi,Znamenka,Знаменка	55.21398	32.1047	P	PPLQ	RU		69				0		231	Europe/Moscow	2012-01-17
+462337	Znamenka	Znamenka	Znamenka,Znamenskoye,Знаменка	54.90854	34.57468	P	PPL	RU		69				0		183	Europe/Moscow	2012-01-17
+462338	Znamenka	Znamenka	Znamenka,Знаменка	54.68333	41.68333	P	PPL	RU		62				0		123	Europe/Moscow	2012-01-17
+462339	Znamenka	Znamenka	Znamenka,Знаменка	54.41729	53.94075	P	PPL	RU		08				0		170	Asia/Yekaterinburg	2012-01-17
+462340	Znamenka	Znamenka		54.41667	40.65	P	PPL	RU		62				0		96	Europe/Moscow	1994-04-09
+2119786	Ostrov Vil’kitskogo	Ostrov Vil'kitskogo	Captain Vilkitski Island,Ostrov Vil'kickogo,Ostrov Vil'kitskago,Ostrov Vil'kitskogo,Ostrov Vil’kitskago,Ostrov Vil’kitskogo,Остров Вилькицкого	75.71224	152.4614	T	ISL	RU		63				0		-9999	Asia/Ust-Nera	2016-11-02
+8456277	Znak V Pamyat’ O Prebyvanii V Omske V 1926 Godu Nikolaya I Yeleny Rerikhov	Znak V Pamyat' O Prebyvanii V Omske V 1926 Godu Nikolaya I Yeleny Rerikhov	Znak V Pamjat' O Prebyvanii V Omske V 1926 Godu Nikolaja I Eleny Rerikhov,Znak V Pamyat' O Prebyvanii V Omske V 1926 Godu Nikolaya I Yeleny Rerikhov,Znak V Pamyat’ O Prebyvanii V Omske V 1926 Godu Nikolaya I Yeleny Rerikhov,Знак В Память О Пребывании В Омске В 1926 Году Николая И Елены Рерихов	54.98115	73.37948	S	MNMT	RU		54				0		81	Asia/Omsk	2013-02-10
+8456283	Znak V Chest’ Pyatidesyatiletiya Omskogo Khokkeya	Znak V Chest' Pyatidesyatiletiya Omskogo Khokkeya	Znak V Chest' 50-letija Omskogo Khokkeja,Znak V Chest' Pyatidesyatiletiya Omskogo Khokkeya,Znak V Chest’ Pyatidesyatiletiya Omskogo Khokkeya,Знак В Честь 50-летия Омского Хоккея	54.97531	73.39521	S	MNMT	RU		54				0		93	Asia/Omsk	2013-02-10
+8456284	Pamyatnye Znaki-kamni Pisatelyam I Poetam Ch’yë Tvorchestvo Svyazano S Omskom	Pamyatnye Znaki-kamni Pisatelyam I Poetam Ch'ye Tvorchestvo Svyazano S Omskom	Pamjatnye Znaki-kamni Pisateljam I Poehtam Ch'jo Tvorchestvo Svjazano S Omskom,Pamyatnye Znaki-kamni Pisatelyam I Poetam Ch'ye Tvorchestvo Svyazano S Omskom,Pamyatnye Znaki-kamni Pisatelyam I Poetam Ch’yë Tvorchestvo Svyazano S Omskom,Памятные Знаки-камни Писателям И Поэтам Чьё Творчество Связано С Омском	54.97496	73.39032	S	MNMT	RU		54				0		88	Asia/Omsk	2013-02-10
+12122507	Khibiny National Park	Khibiny National Park	Khibiny National Park,Nacional'nyj park Khibiny,Национальный парк Хибины	67.7252	33.4738	L	PRK	RU		49				0		1075	Europe/Moscow	2020-01-20
+11282181	Povarnya Bil'lyakh-Kholomoto	Povarnya Bil'lyakh-Kholomoto	Povarnja Bil'ljakh-Kholomoto,Поварня Бильлях-Холомото	72.8792	124.2473	S	HUT	RU		63				0		13	Asia/Yakutsk	2016-11-04
+11238618	Äikäs gård	AEikaes gard	AEikaeae,AEikaeaen kartano,AEikaes,AEikaes gard,Äikäs,Äikäs gård,Äikää,Äikään kartano	60.87508	28.80021	S	RUIN	RU		42				0		19	Europe/Moscow	2016-08-28
+12123288	Compass Grounds	Compass Grounds		68	-171	H	BNK	RU		15				0		-9999		2020-01-29
