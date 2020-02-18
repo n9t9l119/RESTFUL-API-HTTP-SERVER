@@ -7,7 +7,7 @@ from api_methods.get_geo_info import make_info_dict
 
 def info_comparison(geo_1, geo_2):
     validation = input_validation(geo_1, geo_2)
-    if validation is True:
+    if validation == True:
         return jsonify(make_compare_dict(geo_1, geo_2))
     return validation
 
@@ -114,3 +114,7 @@ def get_timezone(timezone):
         return "Timezone is not defined!"
     else:
         return Timezones.query.filter_by(time_zone=timezone).first().offset
+
+
+kek = make_compare_dict("Озеро Сяркиярви", "Явидово")
+print(kek)

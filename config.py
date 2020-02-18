@@ -8,7 +8,7 @@ test_db_path = '/tests/test_geo_info_ru.db'
 app.config['JSON_SORT_KEYS'] = False
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://' + test_db_path
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://' + db_path
 
 ru_txt_path = '../db_in_txt/RU.txt'
 timezones_txt_path = '../db_in_txt/timezones.txt'

@@ -8,7 +8,7 @@ from api_methods.get_page import page
 
 
 class ApiView(FlaskView):
-    @route('/getid', methods=["POST"])
+    @route('/getinfo', methods=["POST"])
     def get_geo_info(self):
         geonameid = request.data.decode("utf-8")
         return info(geonameid)
@@ -21,7 +21,7 @@ class ApiView(FlaskView):
         return Response("Incorrect request!\nIt must be json with keys 'Page' and 'Items_value'!",
                         status=500, mimetype='text/plain')
 
-    @route('/getlocation', methods=["POST"])
+    @route('/getcomparison', methods=["POST"])
     def get_comparison(self):
         json_request = request.get_json()
         if "Geo_1" in json_request and "Geo_2" in json_request:

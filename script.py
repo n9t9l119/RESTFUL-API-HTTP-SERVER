@@ -1,7 +1,5 @@
 from config import app#, BaseConfig#, TestConfig
-import api
-
-import error_handler
+from pages import api
 
 if __name__ == '__main__':
     #app.config.from_object(config)
