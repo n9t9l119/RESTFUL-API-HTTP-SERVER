@@ -30,7 +30,7 @@ def get_item_by_geonameid(geonameid):
 
 def make_info_dict(item):
     if item is None:
-         return None
+        return None
     info_in_dict = {'geonameid': item.geonameid, 'name': item.name, 'asciiname': item.asciiname,
                     'alternatenames': get_alterames(item.geonameid), 'latitude': item.latitude,
                     'longitude': item.longitude,
@@ -56,3 +56,5 @@ def create_alternames_lst(geonameid, alternames):
         names.append(name.name)
     names.remove(Info.query.filter_by(geonameid=geonameid).first().name)
     return names
+
+
