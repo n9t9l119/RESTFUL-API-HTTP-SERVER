@@ -116,5 +116,3 @@ def get_timezone(timezone):
         return Timezones.query.filter_by(time_zone=timezone).first().offset
 
 
-kek = make_compare_dict("Озеро Сяркиярви", "Явидово")
-print(kek)

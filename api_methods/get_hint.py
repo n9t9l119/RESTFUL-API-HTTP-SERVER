@@ -17,7 +17,7 @@ def hint(request):
 
 
 def request_validation(request):
-    if re.match(r'[A-ZА-Я\d]', request) is None:
+    if re.match(r'[\wА-Яа-я\d]', request) is None:
         abort(400)
     return True
     # else:

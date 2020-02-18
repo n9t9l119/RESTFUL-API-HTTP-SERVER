@@ -4,36 +4,47 @@ from api_methods import get_page
 from db.database_declaration import Info
 
 
-@pytest.fixture(params=[
-    (0, 1, True)
-    # (0, -1, "'Page' and 'Items_value' must be a positiv number no less than 1 and no more than 6 digits!")
-])
+# @pytest.fixture(params=[
+#     (0, 1, True)
+#     # (0, -1, "'Page' and 'Items_value' must be a positiv number no less than 1 and no more than 6 digits!")
+# ])
+# def page_items_value_validation(request):
+#     return request.param
+
+@pytest.fixture()
 def page_items_value_validation(request):
-    return request.param
+    max_items_value = len(Info.query.all())
+
+    def params_lst():
+        params = [(3, 2),
+                  (0, max_items_value)]
+        return params
+
+    return params_lst()
 
 
 def test_input_validation(page_items_value_validation):
-    (page_number, items_value, expected_output) = page_items_value_validation
-    result = get_page.input_validation(page_number, items_value)
-    print("output: {0}, expected: {1}".format(result, expected_output))
-    assert result == expected_output
+    for tup in page_items_value_validation:
+        (page_number, items_value) = tup
+        result = get_page.input_validation(page_number, items_value)
+        print("output: {0}, expected: True".format(result))
+        assert result == True
 
-
-@pytest.fixture(params=[
-    # (0, len(Info.query.all()) + 1, "There is not so many values in database!"),
-    (0, len(Info.query.all()), True),
-    # (3, 0, "That page is empty!"),
-    # (len(Info.query.all()), 1, "That page is empty!")
-])
-def numerical_range_validation(request):
-    return request.param
-
-
-def test_numerical_range_validation(numerical_range_validation):
-    (page_number, items_value, expected_output) = numerical_range_validation
-    result = get_page.numerical_range_validation(page_number, items_value)
-    print("output: {0}, expected: {1}".format(result, expected_output))
-    assert result == expected_output
+# @pytest.fixture(params=[
+#     # (0, len(Info.query.all()) + 1, "There is not so many values in database!"),
+#     (0, len(Info.query.all()), True),
+#     # (3, 0, "That page is empty!"),
+#     # (len(Info.query.all()), 1, "That page is empty!")
+# ])
+# def numerical_range_validation(request):
+#     return request.param
+#
+#
+# def test_numerical_range_validation(numerical_range_validation):
+#     (page_number, items_value, expected_output) = numerical_range_validation
+#     result = get_page.numerical_range_validation(page_number, items_value)
+#     print("output: {0}, expected: {1}".format(result, expected_output))
+#     assert result == expected_output
 
 # @pytest.fixture(params=[
 #     (2, 1, [{'admin1_code': '69',
