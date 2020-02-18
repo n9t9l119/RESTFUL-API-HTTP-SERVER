@@ -24,7 +24,7 @@ def append_str_to_db(table, cells):
 
 
 def convert_str_to_info(cells):
-    info_string = Info(  # id=str_number,
+    info_string = Info(
         geonameid=cells[0],
         name=cells[1],
         asciiname=cells[2],
