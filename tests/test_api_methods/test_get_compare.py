@@ -71,5 +71,5 @@ def items_by_ids_validation(request):
 def test_get_items_by_id(items_by_ids_validation):
     for tup in items_by_ids_validation:
         (request, expected_output) = tup
-        result = get_compare.get_items_by_id(request)
+        result = get_compare.get_items_by_ids(request)
         assert result == expected_output
