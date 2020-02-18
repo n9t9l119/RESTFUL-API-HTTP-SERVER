@@ -2,7 +2,7 @@ import re
 
 
 def test_cells_info():
-    ru = open('../db_in_txt/RU.txt', 'r', encoding="utf8")
+    ru = open('../../db_in_txt/RU.txt', 'r', encoding="utf8")
     for string in ru.readlines():
         cells = string.split('\t')
         assert re.match(r'[0-9]{6,8}$', cells[0]) \

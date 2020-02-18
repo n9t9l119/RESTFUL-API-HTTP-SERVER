@@ -1,13 +1,14 @@
-from db.database_declaration import *
-from api_methods.get_geo_info import make_info_dict
 from transliterate import translit
 import re
+from flask import Response, jsonify
+from db.database_declaration import *
+from api_methods.get_geo_info import make_info_dict
 
 
 def info_comparison(geo_1, geo_2):
     validation = input_validation(geo_1, geo_2)
     if validation is True:
-        return make_compare_dict(geo_1, geo_2)
+        return jsonify(make_compare_dict(geo_1, geo_2))
     return validation
 
 
@@ -22,7 +23,7 @@ def input_validation(geo_1, geo_2):
     if re.match(r'[А-Яа-я0-9\s]*$', geo_1) \
             and re.match(r'[А-Яа-я0-9\s]*$', geo_2) is not None:
         return True
-    return "Names can only contain cyrillic letters and numbers!"
+    return Response("Names can only contain cyrillic letters and numbers!", status=400, mimetype='text/plain')
 
 
 def translit_request(geo_1, geo_2):
@@ -38,7 +39,7 @@ def get_obj_by_name(name):
 
 
 def chose_item(items):
-    if items is not None:
+    if items:
         chosen_item = items[0]
         for item in items:
             if item.population > chosen_item.population:
@@ -48,14 +49,14 @@ def chose_item(items):
 
 
 def get_items_by_id(ids):
-    if len(ids) > 0:
+    if ids:
         items = []
         for id in ids:
             item = Info.query.filter_by(geonameid=id).first()
             if item is not None:
                 items.append(item)
         return items
-    return None
+    return []
 
 
 def find_all_ids(name):
@@ -70,7 +71,7 @@ def find_all_ids(name):
 
 def get_ids_by_name(name):
     items = NameId.query.filter_by(name=name).all()
-    if len(items) > 0:
+    if items:
         ids = []
         for item in items:
             ids.append(item.geonameid)
@@ -101,8 +102,15 @@ def compare_timezone(geo_1, geo_2):
 
 
 def timezones_difference(timezone_1, timezone_2):
-    time_1 = Timezones.query.filter_by(time_zone=timezone_1).first().offset
-    time_2 = Timezones.query.filter_by(time_zone=timezone_2).first().offset
+    time_1 = get_timezone(timezone_1)
+    time_2 = get_timezone(timezone_2)
+    if time_1 == "Timezone is not defined!" or time_2 == "Timezone is not defined!":
+        return "Undefinded"
     return time_1 - time_2
 
 
+def get_timezone(timezone):
+    if timezone == "":
+        return "Timezone is not defined!"
+    else:
+        return Timezones.query.filter_by(time_zone=timezone).first().offset
