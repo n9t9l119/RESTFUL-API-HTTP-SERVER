@@ -1,5 +1,5 @@
 from flask_classy import FlaskView, route
-from flask import request, jsonify, Response
+from flask import request, Response
 
 from api_methods.get_compare import info_comparison
 from api_methods.get_geo_info import info

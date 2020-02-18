@@ -1,6 +1,6 @@
 import re
 from flask import abort, Response, jsonify
-from typing import Union, Dict, Any, Tuple, List
+from typing import Union, Dict, Any, List
 
 from db.database_declaration import Info, NameId
 
@@ -8,7 +8,7 @@ from db.database_declaration import Info, NameId
 def info(geonameid: str) -> Response:
     validation = geonameid_validation(geonameid)
     if validation is True:
-        return jsonify(get_item_by_geonameid(geonameid))
+        return get_item_by_geonameid(geonameid)
     return validation
 
 

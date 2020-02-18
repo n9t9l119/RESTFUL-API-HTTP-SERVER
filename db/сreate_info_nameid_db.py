@@ -1,4 +1,4 @@
-from typing import IO, List
+from typing import IO, List, Union
 
 from db.database_declaration import *
 
@@ -18,7 +18,7 @@ def make_cells(string: str) -> List[str]:
     return cells
 
 
-def append_str_to_db(table: List[Info, NameId], cells: List[str]) -> List[NameId, Info]:
+def append_str_to_db(table: List[Union[Info, NameId]], cells: List[str]) -> List[Union[NameId, Info]]:
     item = convert_str_to_info(cells)
     table.append(item)
     table.extend(convert_str_to_nameid(cells, item))
@@ -69,7 +69,7 @@ def all_names_in_str(cells: List[str]) -> List[str]:
     return names
 
 
-def block_commit(table: List[NameId, Info]) -> List[NameId, Info]:
+def block_commit(table: List[Union[NameId, Info]]) -> List[Union[NameId, Info]]:
     if len(table) >= 600000:
         add_to_db(table)
         print("Database creation is in progress...")

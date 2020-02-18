@@ -19,6 +19,8 @@ if __name__ == '__main__':
         timezones_txt = open(timezones_txt_path, 'r', encoding="utf8")
 
         create_db(ru_txt, timezones_txt)
+        ru_txt.close()
+        timezones_txt.close()
 
         print("Database creation was completed successfully")
     else:
