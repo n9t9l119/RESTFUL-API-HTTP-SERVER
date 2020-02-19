@@ -1,5 +1,5 @@
 import re
-from flask import abort, Response, jsonify
+from flask import abort, Response
 from typing import Union, Dict, Any, List
 
 from db.database_declaration import Info, NameId
@@ -17,13 +17,13 @@ def geonameid_validation(geonameid: str) -> Union[bool, Response]:
         if 451747 <= int(geonameid) <= 12123288:
             return True
         return Response("Wrong range!\nIt should be no less than 451747 and no more than 12123288", status=404)
-    return Response("Id must be a positive number no less than 1 and no more than 8 digits!", status=400)
+    return Response("Id must be a positive number no less than 6 and no more than 8 digits!", status=400)
 
 
 def get_item_by_geonameid(geonameid: str) -> Dict[str, Any]:
     item = Info.query.filter_by(geonameid=geonameid).first()
     if item is None:
-        abort(404)
+        Response("Such id does not exist!", status=404)
     return make_info_dict(item)
 
 
