@@ -1,7 +1,9 @@
+from typing import IO, List, Union
+
 from db.database_declaration import *
 
 
-def convert_ru_txt_to_db(file):
+def convert_ru_txt_to_db(file: IO):
     db.create_all()
     table = []
     for string in file.readlines():
@@ -10,20 +12,20 @@ def convert_ru_txt_to_db(file):
     add_to_db(table)
 
 
-def make_cells(string):
+def make_cells(string: str) -> List[str]:
     cells = string.split('\t')
     cells[-1] = cells[-1].replace("\n", "")
     return cells
 
 
-def append_str_to_db(table, cells):
+def append_str_to_db(table: List[Union[Info, NameId]], cells: List[str]) -> List[Union[NameId, Info]]:
     item = convert_str_to_info(cells)
     table.append(item)
     table.extend(convert_str_to_nameid(cells, item))
     return block_commit(table)
 
 
-def convert_str_to_info(cells):
+def convert_str_to_info(cells: List[str]) -> Info:
     info_string = Info(
         geonameid=cells[0],
         name=cells[1],
@@ -47,7 +49,7 @@ def convert_str_to_info(cells):
     return info_string
 
 
-def convert_str_to_nameid(cells, item):
+def convert_str_to_nameid(cells: List[str], item: Info) -> List[NameId]:
     all_str_names_to_db = []
     names = all_names_in_str(cells)
     for name in names:
@@ -55,7 +57,7 @@ def convert_str_to_nameid(cells, item):
     return all_str_names_to_db
 
 
-def all_names_in_str(cells):
+def all_names_in_str(cells: List[str]) -> List[str]:
     names = [cells[1]]
     if names[0] != cells[2]:
         names.append(cells[2])
@@ -67,7 +69,7 @@ def all_names_in_str(cells):
     return names
 
 
-def block_commit(table):
+def block_commit(table: List[Union[NameId, Info]]) -> List[Union[NameId, Info]]:
     if len(table) >= 600000:
         add_to_db(table)
         print("Database creation is in progress...")
@@ -75,6 +77,6 @@ def block_commit(table):
     return table
 
 
-def add_to_db(items):
+def add_to_db(items: db.Model):
     db.session.add_all(items)
     db.session.commit()

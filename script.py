@@ -1,10 +1,10 @@
-from config import app#, BaseConfig#, TestConfig
+from config import app
 from pages import api
 
+
 if __name__ == '__main__':
-    #app.config.from_object(config)
     api.ApiView.register(app)
-    app.run(port="4000")
+    app.run(port="8000")
 
 
 
